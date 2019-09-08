@@ -2,38 +2,39 @@
 JagTag is a simple - yet powerful and customizable - interpretted text parsing language!
 Some methods are included in the built-in libraries, and additional methods can be defined that utilize the parser environment veriables, as well as the method's input.
 
-## Simple Example
-```java
+
+## Kotlin example
+```kotlin
 import com.jagrosh.jagtag.*;
-public class Example
-{
-  public static void main(String[] args)
-  {
-    Parser parser = JagTag.newDefaultBuilder()
-                .addMethod( new Method("exclaim", (env,in) -> in[0]+"!!!") )
-                .build();
-    String result = parser.parse("{exclaim:{if:this|=|that|then:Foo Bar|else:Hello World}}");
-    System.out.println(result);
-  }
+public class Example {
+	fun main() {
+		val parser = JagTag.newDefaultBuilder()
+						.addMethod(Method("exclaim", complex = { (_: Environment, input: Array<String>) ->
+            	    		input[0] + "!!!")	
+						})
+                		.build();
+    	val result = parser.parse("{exclaim:{if:this|=|that|then:Foo Bar|else:Hello World}}");
+		println(result);
+	}
 }
 ```
 Result: `Hello World!!!`
 
+
 ## Maven
-To use Maven with JagTag, simply add the following sections to your pom.xml
-```xml
-  <repository>
-    <id>central</id>
-    <name>bintray</name>
-    <url>http://jcenter.bintray.com</url>
-  </repository>
-```
+To use Maven with JagTag-kotlin, simply add the following to your pom.xml
 ```xml
   <dependency>
-    <groupId>com.jagrosh</groupId>
+    <groupId>com.github.toxicmushroom</groupId>
     <artifactId>JagTag</artifactId>
-    <version>0.5</version>
+    <version>0.6-alpha</version>
   </dependency>
+```
+
+## Gradle
+To use Gradle with JagTag-kotlin, simply add the following to your build.gradle
+```gradle
+	implementation 'com.github.toxicmushroom:JagTag:v0.6-alpha'
 ```
 
 ## Current Projects

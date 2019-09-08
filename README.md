@@ -25,16 +25,16 @@ Result: `Hello World!!!`
 To use Maven with JagTag-kotlin, simply add the following to your pom.xml
 ```xml
   <dependency>
-    <groupId>com.github.toxicmushroom</groupId>
-    <artifactId>JagTag</artifactId>
-    <version>0.6-alpha</version>
+    <groupId>com.github.ToxicMushroom</groupId>
+    <artifactId>JagTag-Kotlin</artifactId>
+    <version>v0.6-beta.1</version>
   </dependency>
 ```
 
 ## Gradle
 To use Gradle with JagTag-kotlin, simply add the following to your build.gradle
 ```gradle
-	implementation 'com.github.toxicmushroom:JagTag:v0.6-alpha'
+	implementation 'com.github.ToxicMushroom:JagTag-Kotlin:v0.6-beta.1'
 ```
 
 ## Current Projects

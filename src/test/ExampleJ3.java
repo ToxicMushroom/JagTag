@@ -30,22 +30,21 @@ import com.jagrosh.jagtag.ParserBuilder;
  *
  * @author John Grosh (jagrosh)
  */
-public class Example3 {
+public class ExampleJ3 {
 
     public static void main(String[] args) {
         Parser parser = new ParserBuilder()
                 .addMethod(new Method("repeat",
-                        (env) -> env.getOrDefault("last", ""),
+                        (env) -> env.get("last").toString(),
                         (env, in) -> {
-                            String output = in[0];
+                            StringBuilder output = new StringBuilder(in[0]);
                             try {
-                                for (int k = 1; k < Integer.parseInt(in[1]); k++)
-                                    output += in[0];
-                            } catch (NumberFormatException ex) {
+                                output.append(in[0].repeat(Math.max(0, Integer.parseInt(in[1]) - 1)));
+                            } catch (NumberFormatException ignored) {
                             }
-                            env.put("last", output);
-                            return output;
-                        }, "|times:"))
+                            env.put("last", output.toString());
+                            return output.toString();
+                        }, new String[]{"|times:"}))
                 .build();
         System.out.println(parser.parse("{repeat:hello |times:4}"));
         System.out.println(parser.parse("Repetition!: {repeat}"));

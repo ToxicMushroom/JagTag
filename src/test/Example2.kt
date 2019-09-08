@@ -12,6 +12,6 @@ class Example2 {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     Example2()
 }

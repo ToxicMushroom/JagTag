@@ -13,24 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.jagrosh.jagtag.Method;
+
 import com.jagrosh.jagtag.Parser;
 import com.jagrosh.jagtag.ParserBuilder;
+import com.jagrosh.jagtag.libraries.Functional;
+import com.jagrosh.jagtag.libraries.Strings;
+import com.jagrosh.jagtag.libraries.Variables;
+
+import javax.swing.*;
 
 /**
- * This example shows some simple method creation without using any of the
- * included libraries. Specifically, this example creates a random decimal
- * number between 0 and 100 using two methods, randint and randdecimal.
+ * This is a simple input/output example with a few of the included libraries.
+ * Note that the arguments library is not inserted because there is no
+ * possibility to include arguments in the single-box input.
  *
  * @author John Grosh (jagrosh)
  */
-public class Example2 {
+public class ExampleJ1 {
 
     public static void main(String[] args) {
         Parser parser = new ParserBuilder()
-                .addMethod(new Method("randint", (env) -> Integer.toString((int) (Math.random() * 100))))
-                .addMethod(new Method("randdecimal", (env) -> Double.toString(Math.random()).substring(1)))
+                .addMethods(Functional.INSTANCE.getMethods())
+                .addMethods(Strings.INSTANCE.getMethods())
+                .addMethods(Variables.INSTANCE.getMethods())
                 .build();
-        System.out.println(parser.parse("{randint}{randdecimal}"));
+
+        String input;
+        while (true) {
+            input = JOptionPane.showInputDialog("Enter JagTag to parse:");
+            if (input == null)
+                break;
+            JOptionPane.showMessageDialog(null, parser.clear().parse(input));
+        }
     }
 }

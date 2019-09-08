@@ -25,16 +25,20 @@ import com.jagrosh.jagtag.ParserBuilder;
  *
  * @author John Grosh (jagrosh)
  */
-public class Example4 {
+public class ExampleJ4 {
 
     public static void main(String[] args) {
         Parser parser = new ParserBuilder()
-                .addMethod(new Method("check",
+                .addMethod(new Method("check", null,
                         (env, in) -> {
                             if (in[0].equals("throw"))
-                                throw new ParseException("No throwing!");
+                                try {
+                                    throw new ParseException("No throwing!");
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
                             return in[0];
-                        }))
+                        }, null))
                 .build();
         System.out.println(parser.parse("{check:this and {check:that and {check:something else}}}"));
         System.out.println(parser.parse("{check:this and {check:that and {check:throw}}}"));

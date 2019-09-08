@@ -3,7 +3,6 @@ package com.jagrosh.jagtag.libraries
 import com.jagrosh.jagtag.Environment
 import com.jagrosh.jagtag.Method
 import java.net.URLEncoder
-import java.nio.charset.StandardCharsets
 
 object Strings {
     fun getMethods(): Collection<Method> {
@@ -29,7 +28,7 @@ object Strings {
 
                 // encodes the text to UTF-8 (url standard)
                 Method("url", complex = { _: Environment, input: Array<String> ->
-                    URLEncoder.encode(input[0], StandardCharsets.UTF_8)
+                    URLEncoder.encode(input[0], "UTF8")
                 }),
 
 

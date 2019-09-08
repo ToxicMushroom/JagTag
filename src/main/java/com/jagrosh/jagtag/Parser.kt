@@ -54,7 +54,7 @@ class Parser
      * @return the parsed String
      */
     @Synchronized
-    fun parse(input: String): String? {
+    fun parse(input: String): String {
         var output = filterEscapes(input)
         var count = 0
         var lastoutput = ""
@@ -72,7 +72,7 @@ class Parser
                     if (method != null) try {
                         result = method.parseSimple(environment)
                     } catch (ex: ParseException) {
-                        return ex.message
+                        return ex.message ?: "no error message"
                     }
                 } else {
                     val name = contents.substring(0, split)
@@ -81,7 +81,7 @@ class Parser
                     if (method != null) try {
                         result = method.parseComplex(environment, defilterAll(params))
                     } catch (ex: ParseException) {
-                        return ex.message
+                        return ex.message ?: "no error message"
                     }
                 }
                 if (result == null) result = "{$contents}"

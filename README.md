@@ -1,3 +1,5 @@
+
+[![](https://jitpack.io/v/ToxicMushroom/JagTag-Kotlin.svg)](https://jitpack.io/#ToxicMushroom/JagTag-Kotlin)
 ## JagTag
 JagTag is a simple - yet powerful and customizable - interpretted text parsing language!
 Some methods are included in the built-in libraries, and additional methods can be defined that utilize the parser environment veriables, as well as the method's input.

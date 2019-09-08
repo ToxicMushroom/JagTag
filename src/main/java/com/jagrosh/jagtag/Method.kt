@@ -34,8 +34,9 @@ class Method(
      * @throws ParseException if the function throws a ParseException
      */
     @Throws(ParseException::class)
-    fun parseSimple(env: Environment?): String? {
-        return simple?.apply(env!!)
+    fun parseSimple(env: Environment): String? {
+        if (simple == null) return null
+        return simple.invoke(env)
     }
 
     /**

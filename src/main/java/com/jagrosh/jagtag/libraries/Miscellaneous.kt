@@ -8,14 +8,11 @@ import java.util.*
  *
  * @author John Grosh (jagrosh)
  */
-class Miscellaneous {
-    companion object {
-        fun getMethods(): Collection<Method> {
-            return listOf(
-
-                    // gets a uuid
-                    Method("uuid", { UUID.randomUUID().toString() })
-            )
-        }
+object Miscellaneous {
+    fun getMethods(): Collection<Method> {
+        return listOf(
+                // gets a uuid
+                Method("uuid", { UUID.randomUUID().toString() })
+        )
     }
 }

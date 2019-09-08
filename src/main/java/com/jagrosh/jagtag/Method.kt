@@ -56,7 +56,7 @@ class Method(
             splitter == null -> input2 = arrayOf(input1)
             splitter.isEmpty() -> input2 = input1.split("\\|").toTypedArray()
             else -> {
-                input2 = arrayOf()
+                input2 = Array(splitter.size + 1) { "" }
                 for (i in 0 until input2.size - 1) {
                     val index = input1.indexOf(splitter[i])
                     if (index == -1) return "<invalid $name statement>"

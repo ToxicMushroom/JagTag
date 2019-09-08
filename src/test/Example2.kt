@@ -6,7 +6,7 @@ class Example2 {
     init {
         val parser: Parser = ParserBuilder()
                 .addMethod(Method("randint", { (Math.random() * 100).toInt().toString() }))
-                .addMethod(Method("randdecimal", { Math.random().toString().substring(1) }))
+                .addMethod(Method("randDecimal", { Math.random().toString().substring(1) }))
                 .build()
         println(parser.parse("{randint}{randDecimal}"))
     }

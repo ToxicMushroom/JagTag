@@ -19,4 +19,13 @@ class Environment : HashMap<String, Any>() {
             defaultValue
         }
     }
+
+    inline fun <reified T> getReifiedX(key: String): T {
+        val value = super.get(key)
+        return if (value is T) {
+            value
+        } else {
+            throw IllegalArgumentException("value is not the correct type, value: $value")
+        }
+    }
 }

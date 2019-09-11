@@ -6,7 +6,7 @@ package com.jagrosh.jagtag
  *
  * @author John Grosh (jagrosh)
  */
-class ParseException : Exception {
+class ParseException : Throwable {
     constructor(message: String?, cause: Throwable?) : super(message, cause)
     constructor(message: String?) : super(message)
 }

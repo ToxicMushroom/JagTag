@@ -34,7 +34,7 @@ class Method(
      * @throws ParseException if the function throws a ParseException
      */
     @Throws(ParseException::class)
-    fun parseSimple(env: Environment): String? {
+    suspend fun parseSimple(env: Environment): String? {
         if (simple == null) return null
         return simple.invoke(env)
     }
@@ -48,7 +48,7 @@ class Method(
      * @throws ParseException if the function throws a ParseException
      */
     @Throws(ParseException::class)
-    fun parseComplex(env: Environment, input: String): String? {
+    suspend fun parseComplex(env: Environment, input: String): String? {
         var input1 = input
         if (complex == null) return null
         val input2: Array<String>

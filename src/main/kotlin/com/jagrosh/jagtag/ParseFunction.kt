@@ -5,4 +5,4 @@ package com.jagrosh.jagtag
  *
  * @author John Grosh (jagrosh)
  */
-typealias ParseFunction = (env: Environment) -> String
+typealias ParseFunction = suspend (env: Environment) -> String

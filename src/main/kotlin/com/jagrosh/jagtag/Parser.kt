@@ -60,7 +60,7 @@ class Parser
      * @return the parsed String
      */
     @Synchronized
-    fun parse(input: String): String {
+    suspend fun parse(input: String): String {
         var output = filterEscapes(input)
         var count = 0
         var lastoutput = ""

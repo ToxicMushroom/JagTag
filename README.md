@@ -5,18 +5,21 @@ JagTag is a simple - yet powerful and customizable - interpretted text parsing l
 Some methods are included in the built-in libraries, and additional methods can be defined that utilize the parser environment veriables, as well as the method's input.
 
 
+# IMPORTANT
+You need kotlin-corroutines to work with this library. As most methods are suspending
+
 ## Kotlin example
 ```kotlin
 import com.jagrosh.jagtag.*;
 public class Example {
-	fun main() {
+	suspend fun main() {
 		val parser = JagTag.newDefaultBuilder()
-						.addMethod(Method("exclaim", complex = { (_: Environment, input: Array<String>) ->
-            	    		input[0] + "!!!")	
-						})
-                		.build();
-    	val result = parser.parse("{exclaim:{if:this|=|that|then:Foo Bar|else:Hello World}}");
-		println(result);
+			.addMethod(Method("exclaim", complex = { (_: Environment, input: Array<String>) ->
+            	input[0] + "!!!")	
+			})
+            .build()
+    	val result = parser.parse("{exclaim:{if:this|=|that|then:Foo Bar|else:Hello World}}")
+		println(result)
 	}
 }
 ```

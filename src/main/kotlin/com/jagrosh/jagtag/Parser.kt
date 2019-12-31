@@ -15,7 +15,13 @@ class Parser
  * @param iterations - the maximum number of iterations the parser will run
  * @param maxLength  - the maximum internal length of the parse string
  * @param maxOutput  - the maximum output of the parsed result
- */(methods: Collection<Method>, private var iterations: Long, private var maxLength: Int, private var maxOutput: Int) {
+ */
+    (
+    methods: Collection<Method>,
+    private var iterations: Long,
+    private var maxLength: Int,
+    private var maxOutput: Int
+) {
     private var methods = HashMap<String, Method>()
     private var environment = Environment()
 

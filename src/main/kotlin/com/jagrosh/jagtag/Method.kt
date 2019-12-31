@@ -20,10 +20,10 @@ package com.jagrosh.jagtag
  * @author John Grosh (jagrosh)
  */
 class Method(
-        val name: String,
-        val simple: ParseFunction? = null,
-        val complex: ParseBiFunction? = null,
-        val splitter: Array<String>? = null
+    val name: String,
+    val simple: ParseFunction? = null,
+    val complex: ParseBiFunction? = null,
+    val splitter: Array<String>? = null
 ) {
 
     /**

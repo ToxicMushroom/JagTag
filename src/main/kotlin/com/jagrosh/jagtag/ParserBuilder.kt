@@ -8,10 +8,12 @@ import java.util.*
  * @author John Grosh (jagrosh)
  */
 class ParserBuilder {
+
     private val methods: MutableList<Method>
     private var iterations: Long = 200
     private var maxLength = 4000
     private var maxOutput = 1995
+
     /**
      * Add a single Method
      *

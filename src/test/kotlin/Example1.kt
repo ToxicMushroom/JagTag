@@ -8,10 +8,10 @@ import javax.swing.JOptionPane
 class Example1 {
     init {
         val parser: Parser = ParserBuilder()
-                .addMethods(Functional.getMethods())
-                .addMethods(Strings.getMethods())
-                .addMethods(Variables.getMethods())
-                .build()
+            .addMethods(Functional.getMethods())
+            .addMethods(Strings.getMethods())
+            .addMethods(Variables.getMethods())
+            .build()
 
         var input: String
         while (true) {

@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     //https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib-jdk8
-    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: '1.4.0'
+    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: '1.4.32'
 }
 
 compileJava.options.encoding = 'UTF-8'

@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "me.melijn.jagtag"
-version = "2.2.0"
+version = "2.2.1"
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_15

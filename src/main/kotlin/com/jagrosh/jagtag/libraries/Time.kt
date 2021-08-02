@@ -23,6 +23,10 @@ object Time {
                 }
             }, null),
 
+            Method("currentTimeMillis", {
+                System.currentTimeMillis().toString()
+            }),
+
             Method("time", complex = { _: Environment, input: Array<String> ->
                 val parts: Array<String> = input[0].split("\\|", limit = 2).toTypedArray()
                 val epoch: Long
@@ -31,8 +35,7 @@ object Time {
                 } catch (e: Exception) {
                     return@Method "<invalid epoch millis>"
                 }
-                val format: DateTimeFormatter?
-                format = if (parts.size == 1) {
+                val format: DateTimeFormatter? = if (parts.size == 1) {
                     DateTimeFormatter.RFC_1123_DATE_TIME
                 } else {
                     try {

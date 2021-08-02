@@ -12,7 +12,7 @@ object Miscellaneous {
     fun getMethods(): Collection<Method> {
         return listOf(
             // gets a uuid
-            Method("uuid", { UUID.randomUUID().toString() })
+            Method("uuid", { UUID.randomUUID().toString() }),
         )
     }
 }

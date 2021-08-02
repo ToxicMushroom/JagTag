@@ -15,7 +15,7 @@ class JagTag {
             .addMethods(Arguments.getMethods())
             .addMethods(Functional.getMethods())
             .addMethods(Strings.getMethods())
-            .addMethods(Variables.getMethods())
+//            .addMethods(Variables.getMethods())
             .addMethods(Time.getMethods())
             .addMethods(Miscellaneous.getMethods())
     }

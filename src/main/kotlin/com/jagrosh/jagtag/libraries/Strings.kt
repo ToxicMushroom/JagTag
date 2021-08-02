@@ -10,13 +10,13 @@ object Strings {
 
             // makes all letters lowercase
             Method("lower", complex = { _: Environment, input: Array<String> ->
-                input[0].toLowerCase()
+                input[0].lowercase()
             }),
 
 
             // makes all letters uppercase
             Method("upper", complex = { _: Environment, input: Array<String> ->
-                input[0].toUpperCase()
+                input[0].uppercase()
             }),
 
 
@@ -39,13 +39,13 @@ object Strings {
 
             // replaces some text with other text based on a regular expression
             // supports capture groups
-            Method("replaceregex", complex = { _: Environment, input: Array<String> ->
-                try {
-                    return@Method input[2].replace(input[0].toRegex(), input[1])
-                } catch (ex: Exception) {
-                    return@Method input[2]
-                }
-            }, splitter = arrayOf("|with:", "|in:")),
+//            Method("replaceregex", complex = { _: Environment, input: Array<String> ->
+//                try {
+//                    return@Method input[2].replace(input[0].toRegex(), input[1])
+//                } catch (ex: Exception) {
+//                    return@Method input[2]
+//                }
+//            }, splitter = arrayOf("|with:", "|in:")),
 
 
             // takes the substring of the provided string
@@ -84,8 +84,25 @@ object Strings {
             // returns a hash of the given input
             Method("hash", complex = { _: Environment, input: Array<String> ->
                 input[0].hashCode().toString()
-            })
+            }),
 
+            Method("zws", {
+                "\u200B"
+            }),
+
+            Method("zwss", {
+                "\u200B "
+            }, { _, args ->
+                val arg = args[0].toIntOrNull() ?: 1
+                "\u200B ".repeat(arg)
+            }),
+
+            Method("szws", {
+                " \u200B"
+            }, { _, args ->
+                val arg = args[0].toIntOrNull() ?: 1
+                " \u200B".repeat(arg)
+            }),
         )
     }
 }

@@ -1,13 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.5.0"
+    id("org.jetbrains.kotlin.jvm") version "1.5.21"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("maven-publish")
 }
 
 group = "me.melijn.jagtag"
-version = "2.1.5"
+version = "2.2.0"
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_15
@@ -19,8 +19,8 @@ repositories {
     mavenLocal()
 }
 
-val kotlin = "1.5.0"
-val kotlinX = "1.4.3"
+val kotlin = "1.5.21"
+val kotlinX = "1.5.1"
 
 dependencies {
     //https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib-jdk8

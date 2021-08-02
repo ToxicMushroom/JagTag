@@ -36,6 +36,10 @@ class ParserBuilder {
         return this
     }
 
+    fun getMethods(): Collection<Method> {
+        return this.methods
+    }
+
     /**
      * Sets the maximum iterations for the parser
      *

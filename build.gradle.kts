@@ -1,17 +1,17 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.5.21"
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    id("org.jetbrains.kotlin.jvm") version "1.8.22"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     id("maven-publish")
 }
 
 group = "me.melijn.jagtag"
-version = "2.2.1"
+version = "2.2.2"
 
 configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_15
-    targetCompatibility = JavaVersion.VERSION_15
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
@@ -19,8 +19,8 @@ repositories {
     mavenLocal()
 }
 
-val kotlin = "1.5.21"
-val kotlinX = "1.5.1"
+val kotlin = "1.8.22"
+val kotlinX = "1.7.2"
 
 dependencies {
     //https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib-jdk8
@@ -38,7 +38,7 @@ tasks {
     }
     withType(KotlinCompile::class) {
         kotlinOptions {
-            jvmTarget = "15"
+            jvmTarget = "17"
         }
     }
 
@@ -50,10 +50,14 @@ tasks {
 publishing {
     repositories {
         maven {
-            url = uri("https://nexus.melijn.com/repository/maven-releases/")
+            url = if (project.version.toString().contains("SNAPSHOT")) {
+                uri("https://reposilite.melijn.com/snapshots/")
+            } else {
+                uri("https://reposilite.melijn.com/releases/")
+            }
             credentials {
-                username = property("melijnPublisher").toString()
-                password = property("melijnPassword").toString()
+                username = property("melijnReposilitePub").toString()
+                password = property("melijnReposilitePassword").toString()
             }
         }
     }

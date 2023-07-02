@@ -1,26 +1,19 @@
-
-[![](https://jitpack.io/v/ToxicMushroom/JagTag-Kotlin.svg)](https://jitpack.io/#ToxicMushroom/JagTag-Kotlin)
 ## JagTag
-JagTag is a simple - yet powerful and customizable - interpretted text parsing language!
-Some methods are included in the built-in libraries, and additional methods can be defined that utilize the parser environment veriables, as well as the method's input.
-
-
-# IMPORTANT
-You need kotlin-corroutines to work with this library. As most methods are suspending
+JagTag is a simple - yet powerful and customizable - interpreted text parsing language!
+Some methods are included in the built-in libraries, and additional methods can be defined that utilize the parser environment variables, as well as the method's input.
 
 ## Kotlin example
 ```kotlin
-import com.jagrosh.jagtag.*;
-public class Example {
-	suspend fun main() {
-		val parser = JagTag.newDefaultBuilder()
-			.addMethod(Method("exclaim", complex = { (_: Environment, input: Array<String>) ->
-            	input[0] + "!!!")	
-			})
-            .build()
-    	val result = parser.parse("{exclaim:{if:this|=|that|then:Foo Bar|else:Hello World}}")
-		println(result)
-	}
+import com.jagrosh.jagtag.*
+
+class Example { 
+    suspend fun main() { 
+        val parser = JagTag.newDefaultBuilder()
+            .addMethod(Method("exclaim", complex = { (_: Environment, input: Array<String>) -> input[0] + "!!!"  }))
+            .build() 
+        val result = parser.parse("{exclaim:{if:this|=|that|then:Foo Bar|else:Hello World}}")
+        println(result) 
+    }
 }
 ```
 Result: `Hello World!!!`
@@ -29,17 +22,17 @@ Result: `Hello World!!!`
 ## Maven
 To use Maven with JagTag-kotlin, simply add the following to your pom.xml
 ```xml
-  <dependency>
-    <groupId>com.github.ToxicMushroom</groupId>
+<dependency>
+    <groupId>me.melijn.jagtag</groupId>
     <artifactId>JagTag-Kotlin</artifactId>
-    <version>v0.6-beta.1</version>
-  </dependency>
+    <version>2.2.2</version>
+</dependency>
 ```
 
 ## Gradle
-To use Gradle with JagTag-kotlin, simply add the following to your build.gradle
-```gradle
-	implementation 'com.github.ToxicMushroom:JagTag-Kotlin:v0.6-beta.1'
+To use Gradle with JagTag-kotlin, simply add the following to your build.gradle.kts
+```kts
+implementation("me.melijn.jagtag:JagTag-Kotlin:2.2.2")
 ```
 
 ## Current Projects

@@ -59,7 +59,6 @@ class Parser
      * @param input
      * @return the parsed String
      */
-    @Synchronized
     suspend fun parse(input: String): String {
         var output = filterEscapes(input)
         var count = 0
@@ -68,7 +67,7 @@ class Parser
             lastoutput = output
             val i1 = output.indexOf("}")
             val i2 = if (i1 == -1) -1 else output.lastIndexOf("{", i1)
-            if (i1 != -1 && i2 != -1)//otherwise, we're done
+            if (i1 != -1 && i2 != -1) // otherwise, we're done
             {
                 val contents = output.substring(i2 + 1, i1)
                 var result: String? = null

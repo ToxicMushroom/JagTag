@@ -2,7 +2,7 @@ package com.jagrosh.jagtag
 
 import com.jagrosh.jagtag.libraries.*
 
-const val VERSION = "0.6"
+const val VERSION = "2.2.2"
 const val REPOSITORY_URL = "https://github.com/toxicmushroom/JagTag"
 
 /**
